@@ -1,0 +1,84 @@
+{
+    "chin": [
+        "leftEye",
+        "rightEye",
+        "neck"
+    ],
+    "rightEye": [
+        "chin",
+        "leftEye",
+        "neck"
+    ],
+    "leftEye": [
+        "chin",
+        "rightEye",
+        "neck"
+    ],
+    "neck": [
+        "chin",
+        "leftEye",
+        "rightEye",
+        "leftShoulder",
+        "rightShoulder"
+    ],
+    "leftShoulder": [
+        "neck",
+        "frontLeftHip",
+        "tailSart"
+    ],
+    "rightShoulder": [
+        "neck",
+        "frontRightHip",
+        "tailStart"
+    ],
+    "frontLeftHip": [
+        "leftShoulder",
+        "frontLeftKnee"
+    ],
+    "frontRightHip": [
+        "rightShoulder",
+        "frontRightKnee"
+    ],
+    "frontLeftKnee": [
+        "frontLeftHip",
+        "frontLeftHoof"
+    ],
+    "frontRightKnee": [
+        "frontRightHip",
+        "frontRightHoof"
+    ],
+    "frontLeftHoof": [
+        "frontLeftKnee"
+    ],
+    "frontRightHoof": [
+        "frontRightKnee"
+    ],
+    "tailStart": [
+        "leftShoulder",
+        "rightShoulder",
+        "backLeftHip",
+        "backRightHip"
+    ],
+    "backLeftHip": [
+        "tailStart",
+        "backLeftKnee"
+    ],
+    "backRightHip": [
+        "tailStart",
+        "backRightKnee"
+    ],
+    "backLeftKnee": [
+        "backLeftHip",
+        "backLeftHoof"
+    ],
+    "backRightKnee": [
+        "backRightHip",
+        "backRightHoof"
+    ],
+    "backLeftHoof": [
+        "backLeftKnee"
+    ],
+    "backRightHoof": [
+        "backRightKnee"
+    ]
+}
