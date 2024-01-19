@@ -6,7 +6,7 @@ from sklearn.preprocessing import MinMaxScaler
 import json
 
 # load the points json file indicating the points of the graph
-def load_points(points_path=os.path.join(os.getcwd(), 'behaviour-discovery', 'points.json')):
+def load_points(points_path=os.path.join(os.getcwd(), 'landmarks\horse\landmarks.m')):
     points = []
     # points_path = os.path.join(os.getcwd(), 'landmarks\horse\landmarks.m')
     with open(points_path, 'r') as f:
@@ -19,7 +19,7 @@ def load_points(points_path=os.path.join(os.getcwd(), 'behaviour-discovery', 'po
 
 
 # load the graphs json file
-def load_graphs(graphs_path=os.path.join(os.getcwd(), 'behaviour-discovery', 'graphs.json')):
+def load_graphs(graphs_path=os.path.join(os.getcwd(), 'behavoiur-discovery\graph.json')):
     # graphs_path = os.path.join(os.getcwd(), 'behaviour-discovery', 'graphs.json')
     with open(graphs_path, 'r') as f:
         graph = json.load(f) # the generic graph
