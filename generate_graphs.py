@@ -48,21 +48,22 @@ def load_file(filename):
 def graph_sequence(directory='landmarks\horse'):
     # load the files
     files = landmarks_path(directory)
-    print(files)
+    # print(files)
     graphs_dict = dict() # A dictionary of all the files and the graphs
     # load each file
     for file in files:
         graph_list = [] # a list of graphs for each file
         # load the file
         loaded_file = load_file(file)
-        print(f'Loaded file: {file}, shape: {loaded_file.shape}')
+        # print(f'Loaded file: {file}, shape: {loaded_file.shape}')
         # loop through each frame
         for frame in loaded_file[0][0]: # the first frame of the first landmark
             # get the positions and if present
             positions = frame['positions'][0]
             present = frame['present'][0]
-            print(f'Positions shape: {positions.shape}') # the x,y coordinates for the first frame
-            print(f'Present shape: {present.shape}')
+            # print(f'Positions shape: {positions.shape}') # the x,y coordinates for the first frame
+            # print
+            # (f'Present shape: {present.shape}')
             # normalize the positions to be between 0 and 1
             scaler = MinMaxScaler()
             positions = scaler.fit_transform(positions)
