@@ -57,33 +57,34 @@ def graph_sequence(directory='landmarks\horse'):
         loaded_file = load_file(file)
         # print(f'Loaded file: {file}, shape: {loaded_file.shape}')
         # loop through each frame
-        for frame in loaded_file[0][0]: # the first frame of the first landmark
-            # get the positions and if present
-            positions = frame['positions'][0]
-            present = frame['present'][0]
-            # print(f'Positions shape: {positions.shape}') # the x,y coordinates for the first frame
-            # print
-            # (f'Present shape: {present.shape}')
-            # normalize the positions to be between 0 and 1
-            scaler = MinMaxScaler()
-            positions = scaler.fit_transform(positions)
-            positions = [np.linalg.norm([x, y]) for x, y in positions]
+        for i in range(loaded_file.shape[0]):
+            for frame in loaded_file[i][0]: # the first frame of the first landmark
+                # get the positions and if present
+                positions = frame['positions'][0]
+                present = frame['present'][0]
+                # print(f'Positions shape: {positions.shape}') # the x,y coordinates for the first frame
+                # print
+                # (f'Present shape: {present.shape}')
+                # normalize the positions to be between 0 and 1
+                scaler = MinMaxScaler()
+                positions = scaler.fit_transform(positions)
+                # positions = [np.linalg.norm([x, y]) for x, y in positions]
 
-            # absent_nodes
-            absent_nodes = [key for key, val  in dict(zip(points, present)).items() if val == 0]
+                # absent_nodes
+                absent_nodes = [key for key, val  in dict(zip(points, present)).items() if val == 0]
 
-            # initialize graph
-            G = nx.Graph()
+                # initialize graph
+                G = nx.Graph()
 
-            # add nodes and weighted edges
-            for node, neighbors in graph.items():
-                for neighbor in neighbors:
-                    if neighbor not in absent_nodes and node not in absent_nodes:
-                        # get the weights
-                        weights = dict(zip(points, positions))[neighbor] 
-                        # add the weighted edges
-                        G.add_edge(node, neighbor, weight=weights)
-            # append the graph to the list
+                # add nodes and weighted edges
+                for node, neighbors in graph.items():
+                    for neighbor in neighbors:
+                        if neighbor not in absent_nodes and node not in absent_nodes:
+                            # get the weights as the euclidean distance between the node and the neighbor
+                            weights = np.linalg.norm(positions[points.index(node)] - positions[points.index(neighbor)])
+                            # add the weighted edges
+                            G.add_edge(node, neighbor, weight=weights)
+                # append the graph to the list
             graph_list.append(G)
         # add the file and the list of graphs to the dictionary
         # split the filename
