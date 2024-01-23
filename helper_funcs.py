@@ -17,16 +17,19 @@ def evaluate_frame(video_file, frame_no):
         # show the frame
         plt.imshow(frame)
         plt.show()
+        return frame
     except TypeError as e:
         print(f'{e}')
         plt.close()
         return None
 
 # Generate adjacency matrix from the graph and pad it with zeros
-def adjacency_matrix(graph_list, pad=True):
+def adjacency_matrix(graph_list, pad=True, nodes_number=(19,19)):
     adj = []
     if isinstance(graph_list, list):
         for no, i in enumerate(graph_list):
+            if no == 300:
+                break
             try:
                 xc = nx.adjacency_matrix(i).todense()
                 adj.append(xc)
@@ -36,12 +39,14 @@ def adjacency_matrix(graph_list, pad=True):
         
         if pad:
             # Get the maximum number of nodes by shape
-            max_shape = max(adj, key=lambda x: x.size)
+            max_shape = nodes_number
+            
             # print(max_shape)
         # Pad the adjacency matrix with zeros
-            padded_adj = np.array([np.pad(matrix, ((0, max_shape.shape[0] - matrix.shape[0]), 
-                                          (0, max_shape.shape[1] - matrix.shape[1])), 
+            padded_adj = np.array([np.pad(matrix, ((0, max_shape[0] - matrix.shape[0]), 
+                                          (0, max_shape[1] - matrix.shape[1])), 
                                           mode='constant') for matrix in adj])
+
             return padded_adj
         else:
             return adj
