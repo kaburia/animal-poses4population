@@ -4,3 +4,8 @@ The [link](http://calvin-vision.net/bigstuff/tigdog/behaviorDiscovery2.0.tar.gz)
 
 ![image](https://github.com/kaburia/animal-poses4population/assets/88529649/3c18d2d3-88f2-42dc-8079-a92ee0f6ae30)
 
+---
+Resources
+- A [challenge](https://www.aicrowd.com/challenges/multi-agent-behavior-representation-modeling-measurement-and-applications) on using pose estimations from mice to predict behavior.
+- 
+
