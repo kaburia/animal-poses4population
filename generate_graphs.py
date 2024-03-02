@@ -25,9 +25,6 @@ def load_graphs(graphs_path=os.path.join(os.getcwd(), 'behavoiur-discovery\graph
         graph = json.load(f) # the generic graph
     return graph
 
-points = load_points()
-graph = load_graphs()
-
 
 # landmarks directory
 def landmarks_path(directory):
@@ -45,7 +42,7 @@ def load_file(filename):
         return mat['landmarks']
 
 # a function to take in the loaded file and return a sequence of graphs
-def graph_sequence(directory='landmarks\horse'):
+def graph_sequence(directory='landmarks\horse', points=load_points(), graph=load_graphs()):
     # load the files
     files = landmarks_path(directory)
     # print(files)
