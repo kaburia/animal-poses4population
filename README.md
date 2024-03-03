@@ -2,7 +2,13 @@ This repository contains code intending to understand animal population dynamics
 A Siamese Network with an LSTM head is proposed to solve this problem with a contrastive or triplet loss.<br>
 The [link](http://calvin-vision.net/bigstuff/tigdog/behaviorDiscovery2.0.tar.gz) to the dataset<br>
 
-![image](https://github.com/kaburia/animal-poses4population/assets/88529649/3c18d2d3-88f2-42dc-8079-a92ee0f6ae30)
+Human Graph Representation<br>
+![image](https://github.com/kaburia/animal-poses4population/assets/88529649/bc1a1905-d30c-42f0-b636-2a969b194429)<br>
+<br>
+Animal Graph representation<br>
+![image](https://github.com/kaburia/animal-poses4population/assets/88529649/a6bf2d01-0a90-4e62-b921-387330f4ef23)
+
+
 
 ---
 Resources
